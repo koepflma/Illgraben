@@ -51,7 +51,7 @@ def get_mseed(time, client, network, stations, channels, locations=[''],
 
 def comp_features(i, year=year, client=client, network=network, stations=stations, channels=channels):
     
-    file_path = '/data/wsd03/data_manuela/Illgraben/feature_files/{}/2filt_40_seconds/'.format(year)
+    file_path = '/data/wsd03/data_manuela/Illgraben/feature_files/{}/40_seconds_2freq/'.format(year)
     if not os.path.exists(file_path):
         os.makedirs(file_path)    
     

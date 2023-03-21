@@ -89,7 +89,7 @@ def comp_features(i, year=year, network=network, stations=stations, channels=cha
         feats = np.reshape(feats, (1, len(feats)))
         d = pd.DataFrame(feats)
         
-        file_path = '/data/wsd03/data_manuela/Illgraben/feature_files/{}/unfilt_40_seconds/'.format(year)
+        file_path = '/data/wsd03/data_manuela/Illgraben/feature_files/{}/40_seconds_unfilt/'.format(year)
         if not os.path.exists(file_path):
             os.makedirs(file_path)
         
