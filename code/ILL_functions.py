@@ -83,6 +83,9 @@ def mask_debrisflow(class_res, ns_dat, ts, te):
     return(class_mask, ns_dat_per, ns_dat_mask)
 
 def mask_polar(class_res, class_mask, ns_dat, ns_dat_per, ns_dat_mask):
+    # without _mask -> includes all detections
+    #         _mask -> masked df around debris-flow
+    
     # create df for polar plot
     df_polar = class_res.groupby([class_res['datetimes'].dt.hour]).sum()
 
@@ -95,6 +98,11 @@ def mask_polar(class_res, class_mask, ns_dat, ns_dat_per, ns_dat_mask):
     return(df_polar, df_polar_mask, ns_polar, ns_polar_mask)
 
 def some_processing(class_res, class_mask, ns_dat_per, ns_dat_mask):
+    # Input: without _mask -> includes all detections
+    #                _mask -> masked df around debris-flow
+    # Output:         _DF -> includes all detections
+    #         without _DF -> masked df around debris-flow
+    
     # Group hourly
     group_DF = class_res.copy().resample('H', on='datetimes').sum()[1:] # hourly
     group_DF.index.rename('Date', inplace=True)
